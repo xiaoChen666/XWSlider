@@ -124,6 +124,9 @@ NSString *const CXWPingFang_SC_Regular = @"PingFang-SC-Regular";
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint currentPoint = [touch locationInView:self];
     [self changeShowIMGVXWithPoint:currentPoint];
+    if (self.isAnimalShow) {
+        [self changeShowWithPoint:currentPoint];
+    }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     return YES;
 }
@@ -132,6 +135,10 @@ NSString *const CXWPingFang_SC_Regular = @"PingFang-SC-Regular";
     CGPoint currentPoint = [touch locationInView:self];
     [self changeShowIMGVXWithPoint:currentPoint];
     
+    [self changeShowWithPoint:currentPoint];
+}
+
+- (void)changeShowWithPoint:(CGPoint)currentPoint {
     CGFloat percent = (self.maximumValue - self.minimumValue)/self.scale;
     if (percent<=0) {
         percent = 1.0;
@@ -151,6 +158,8 @@ NSString *const CXWPingFang_SC_Regular = @"PingFang-SC-Regular";
         self.valueBlock([NSNumber numberWithInteger:(self.currenIndex)]);
     }
 }
+
+
 
 - (void)changeShowIMGVXWithPoint:(CGPoint)point {
     

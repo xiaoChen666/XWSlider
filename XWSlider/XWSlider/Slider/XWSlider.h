@@ -25,6 +25,10 @@ typedef void (^CXWPublicValueBlock)(id object);
 @property (nonatomic) float scale;
 
 /**
+ @isAnimalShow 是否动态的显示数值 default没有
+ */
+@property (nonatomic) float isAnimalShow;
+/**
  当前的数值
  */
 @property (nonatomic, assign) NSInteger currenIndex;

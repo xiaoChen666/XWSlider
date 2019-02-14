@@ -22,6 +22,7 @@
     XWSlider *slider = [[XWSlider alloc] init];
     slider.minimumValue = 80;
     slider.maximumValue = 100;
+    slider.isAnimalShow = YES;
     slider.scale = 5;
     [self.view addSubview:slider];
     [slider mas_makeConstraints:^(MASConstraintMaker *make) {
