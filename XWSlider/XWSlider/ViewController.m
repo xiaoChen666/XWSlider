@@ -20,13 +20,16 @@
     
     
     XWSlider *slider = [[XWSlider alloc] init];
-    slider.minimumValue = 80;
+    slider.minimumValue = 0;
     slider.maximumValue = 100;
     slider.isAnimalShow = YES;
-    slider.scale = 5;
+    slider.scale = 1;
     [self.view addSubview:slider];
+    slider.valueBlock = ^(id object) {
+        NSLog(@"----%@",object);
+    };
     [slider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(180, 50));
+        make.size.mas_equalTo(CGSizeMake(300, 50));
         make.center.equalTo(self.view);
     }];
     
